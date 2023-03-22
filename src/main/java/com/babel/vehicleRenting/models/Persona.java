@@ -2,6 +2,8 @@ package com.babel.vehicleRenting.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import java.util.Date;
 
 public class Persona {
@@ -17,7 +19,11 @@ public class Persona {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date fechaNacimiento;
     private String nacionalidad;
-    private int scoring;
+    @Min(1)
+    @Max(8)
+    private Integer scoring;
+    
+    //TODO: Falta FechaScoring
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date fechaScoring;
 
@@ -101,11 +107,11 @@ public class Persona {
         this.nacionalidad = nacionalidad;
     }
 
-    public int getScoring() {
+    public Integer getScoring() {
         return scoring;
     }
 
-    public void setScoring(int scoring) {
+    public void setScoring(Integer scoring) {
         this.scoring = scoring;
     }
 
