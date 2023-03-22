@@ -1,14 +1,11 @@
 package com.babel.vehicleRenting.persistance.database.mappers;
 
-import com.babel.vehicleRenting.models.RentaAnual;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface ProfesionMapper {
-    //Aqui habria que hacer un select para hacer las validaciones
-    @Insert("INSERT INTO PROFESION (DESCRIPCION) VALUES (#{descripcion}))")
-    @Options(useGeneratedKeys = true, keyProperty = "profesionId", keyColumn = "PROFESION_ID")
-    void insertProfesion(RentaAnual rentaAnual);
+    
+    @Select("SELECT COUNT(PROFESION_ID) FROM PROFESION WHERE PROFESION_ID = #{profesionId}")
+    int existeProfesion(int profesionId);
 }

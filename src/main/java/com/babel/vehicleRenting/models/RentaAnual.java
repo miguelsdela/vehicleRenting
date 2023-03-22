@@ -1,5 +1,7 @@
 package com.babel.vehicleRenting.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class RentaAnual {
@@ -11,6 +13,7 @@ public class RentaAnual {
     private int isCuentaPropia;
     private String iae;
     private String cifEmpleador;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date fechaInicioEmpleo;
 
     public int getRentaId() {

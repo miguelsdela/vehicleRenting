@@ -1,5 +1,7 @@
 package com.babel.vehicleRenting.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class Persona {
@@ -12,9 +14,11 @@ public class Persona {
     private boolean direccionDomicilioSameAsNotification = true;
     private Direccion direccionNotificacion;
     private String nif;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date fechaNacimiento;
     private String nacionalidad;
     private int scoring;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date fechaScoring;
 
     public int getPersonaId() {
