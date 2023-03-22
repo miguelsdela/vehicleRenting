@@ -1,19 +1,23 @@
 package com.babel.vehicleRenting.services.impl;
 
 import com.babel.vehicleRenting.models.RentaAnual;
+import com.babel.vehicleRenting.persistance.database.mappers.RentaAnualMapper;
 import com.babel.vehicleRenting.services.RentaAnualService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RentaAnualServiceImpl implements RentaAnualService {
-    @Override
-    @Transactional
-    public RentaAnual addRentaAnual(RentaAnual rentaAnual) {
-        return null;
+
+    private RentaAnualMapper rentaAnualMapper;
+
+    public RentaAnualServiceImpl(RentaAnualMapper rentaAnualMapper) {
+        this.rentaAnualMapper = rentaAnualMapper;
     }
 
-    private RentaAnual addRentaAnualProfesion(RentaAnual rentaAnual) {
-        return null;
+    @Override
+    public RentaAnual addRentaAnual(RentaAnual rentaAnual) {
+        this.rentaAnualMapper.insertRentaAnual(rentaAnual);
+        return rentaAnual;
     }
+
 }

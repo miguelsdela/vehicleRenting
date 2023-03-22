@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Options;
 
 @Mapper
 public interface ProfesionMapper {
-
+    //Aqui habria que hacer un select para hacer las validaciones
     @Insert("INSERT INTO PROFESION (DESCRIPCION) VALUES (#{descripcion}))")
     @Options(useGeneratedKeys = true, keyProperty = "profesionId", keyColumn = "PROFESION_ID")
     void insertProfesion(RentaAnual rentaAnual);
