@@ -31,6 +31,14 @@ public class PersonaServiceImpl implements PersonaService {
         return persona;
     }
 
+    @Override
+    public Persona getPerson(int idPersona) throws RequestApiValidationException {
+        if (idPersona < 1) {
+            throw new RequestApiValidationException();
+        }
+        return null;
+    }
+
     private Persona addPersonaDireccion(Persona persona) {
         this.direccionMapper.insertDireccion(persona.getDireccionDomicilio());
         if (persona.isDireccionDomicilioSameAsNotification()) {
