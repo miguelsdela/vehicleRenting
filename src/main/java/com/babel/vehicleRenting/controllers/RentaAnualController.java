@@ -4,6 +4,7 @@ import com.babel.vehicleRenting.exceptions.PersonaNotFoundException;
 import com.babel.vehicleRenting.exceptions.ProfesionNotFoundException;
 import com.babel.vehicleRenting.models.RentaAnual;
 import com.babel.vehicleRenting.services.RentaAnualService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class RentaAnualController {
     RentaAnualService rentaAnualService;
 
-    public RentaAnualController(RentaAnualService rentaAnualService) {
+    public RentaAnualController (RentaAnualService rentaAnualService) {
         this.rentaAnualService = rentaAnualService;
     }
 
     @PostMapping("/renta")
-    ResponseEntity addRentaAnual(@RequestBody RentaAnual rentaAnual) {
+    @Operation(summary = "Añade una renta Anual")
+    ResponseEntity addRentaAnual (@RequestBody RentaAnual rentaAnual) {
         try {
             this.rentaAnualService.addRentaAnual(rentaAnual);
         } catch (ProfesionNotFoundException e) {

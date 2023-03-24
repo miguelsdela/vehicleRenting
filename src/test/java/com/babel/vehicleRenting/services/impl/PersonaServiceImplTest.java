@@ -14,7 +14,7 @@ import org.mockito.Mockito;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-//Los test con TDD (Primero haces los test y despues vas programando)
+//Los test con TDD (Primero haces los test y después vas programando)
 public class PersonaServiceImplTest {
     PersonaService personaService;
     PersonaMapper personaMapper;
